@@ -5,12 +5,12 @@
 export PATH=/usr/sbin:/sbin:${PATH}
 export LANG=C
 
-POLL_INTERVALL=${POLL_INTERVALL:-300}
+POLL_INTERVAL=${POLL_INTERVAL:-300}
 MAX_DOWNLOAD_BYTES=${MAX_DOWNLOAD_BYTES:-16000000000}
 MAX_UPLOAD_BYTES=${MAX_UPLOAD_BYTES:-5300000000}
 FRITZBOX_NR=${FRITZBOX_NR:-7530}
 FRITZBOX=${FRITZBOX:-192.168.178.1}
-RUN_NGINX=${RUN_NGINX:-1}
+RUN_WEBSERVER=${RUN_WEBSERVER:-1}
 
 setup_timezone() {
     if [ -n "$TZ" ]; then
@@ -25,7 +25,7 @@ setup_timezone() {
 }
 
 stop_nginx() {
-    [ "${RUN_NGINX}" = "1" ] && nginx -s quit
+    [ "${RUN_WEBSERVER}" = "1" ] && nginx -s quit
 }
 
 init_trap() {
@@ -52,11 +52,11 @@ fi
 test -d /srv/www/htdocs || mkdir -p /srv/www/htdocs
 test -d /var/log/mrtg || mkdir -p /var/log/mrtg
 
-[ "${RUN_NGINX}" = "1" ] && nginx
+[ "${RUN_WEBSERVER}" = "1" ] && nginx
 
 while true; do
   DATE=$(date -Iseconds)
   echo "$DATE Fetch new data"
   /usr/bin/mrtg /etc/mrtg.cfg 2>&1 | tee -a /var/log/mrtg/mrtg.log
-  sleep "${POLL_INTERVALL}"
+  sleep "${POLL_INTERVAL}"
 done

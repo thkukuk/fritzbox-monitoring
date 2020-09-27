@@ -19,7 +19,7 @@ FRITZBOX_NR=7530
 FRRITZBOX=192.168.178.1
 
 # Intervall in which we poll the fritzbox
-POLL_INTERVALL=300
+POLL_INTERVAL=300
 
-# If nginx should be started as webserver or not
-RUN_NGINX=1
+# If a webserver should be started or not
+RUN_WEBSERVER=1
