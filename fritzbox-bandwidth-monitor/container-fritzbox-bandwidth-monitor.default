@@ -1,0 +1,19 @@
+# Variables of this file can be overwritten with
+# /etc/default/container-fritzbox-bandwidth-monitor
+
+# Name of the image path to pull the fritzbox-bandwidth-monitor image from
+FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH=registry.opensuse.org/home/kukuk/container/container/fritzbox-bandwidth-monitor:latest
+
+# Max download in bytes
+MAX_DOWNLOAD_BYTES=16000000000
+# Max upload in bytes
+MAX_UPLOAD_BYTES=5300000000
+
+# Number of Fritzbox, e.g. 7490, 7530, ...
+FRITZBOX_NR=7530
+
+# Fritzbox IP or DNS Name
+FRRITZBOX=192.168.178.1
+
+# Intervall in which we poll the fritzbox
+POLL_INTERVALL=300
