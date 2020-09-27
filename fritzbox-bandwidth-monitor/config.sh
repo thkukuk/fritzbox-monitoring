@@ -10,9 +10,6 @@ test -f /.profile && . /.profile
 #--------------------------------------
 echo "Configure image: [$kiwi_iname]..."
 
-# Delete original dummy config
-rm /etc/mrtg.cfg
-
 # Adjust default configs
 sed -i -e 's|WorkDir:.*|WorkDir: /srv/www/htdocs|g' /fritzbox-bandwidth-monitor/mrtg.cfg
 sed -i -e 's|/usr/local/bin/upnp2mrtg.sh|/fritzbox-bandwidth-monitor/upnp2mrtg.sh|g' /fritzbox-bandwidth-monitor/mrtg.cfg
