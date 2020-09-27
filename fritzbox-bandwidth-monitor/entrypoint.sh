@@ -41,7 +41,7 @@ if [ ! -f /etc/mrtg.cfg ]; then
 	-e "s|^MaxBytes1[fritzbox]:|MaxBytes1[fritzbox]: ${MAX_DOWNLOAD_BYTES}|g" \
 	-e "s|^MaxBytes2[fritzbox]:|MaxBytes2[fritzbox]: ${MAX_UPLOAD_BYTES}|g" \
 	-e "s|192.168.178.1 (fritzbox.home.lan)|${FRITZBOX}|g" \
-	> /etc/mrtg.cfg
+	/fritzbox-bandwidth-monitor/mrtg.cfg > /etc/mrtg.cfg
 fi
 
 if [ ! -f /etc/upnp2mrtg.cfg ]; then
