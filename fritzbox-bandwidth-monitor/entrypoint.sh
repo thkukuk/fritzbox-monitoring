@@ -10,6 +10,7 @@ MAX_DOWNLOAD_BYTES=${MAX_DOWNLOAD_BYTES:-16000000000}
 MAX_UPLOAD_BYTES=${MAX_UPLOAD_BYTES:-5300000000}
 FRITZBOX_NR=${FRITZBOX_NR:-7530}
 FRITZBOX=${FRITZBOX:-192.168.178.1}
+RUN_NGINX=${RUN_NGINX:-1}
 
 setup_timezone() {
     if [ -n "$TZ" ]; then
@@ -24,7 +25,7 @@ setup_timezone() {
 }
 
 stop_nginx() {
-    nginx -s quit
+    [ "${RUN_NGINX}" = "1" ] && nginx -s quit
 }
 
 init_trap() {
@@ -51,7 +52,7 @@ fi
 test -d /srv/www/htdocs || mkdir -p /srv/www/htdocs
 test -d /var/log/mrtg || mkdir -p /var/log/mrtg
 
-nginx
+[ "${RUN_NGINX}" = "1" ] && nginx
 
 while true; do
   DATE=$(date -Iseconds)
