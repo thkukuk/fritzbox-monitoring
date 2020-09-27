@@ -48,6 +48,7 @@
     <package name="bash"/>
     <package name="mrtg"/>
     <package name="nginx"/>
+    <package name="timezone"/>
     <archive name="entrypoint.tar.gz"/>
     <archive name="fritzbox-bandwidth-monitor.tar.gz"/>
   </packages>
