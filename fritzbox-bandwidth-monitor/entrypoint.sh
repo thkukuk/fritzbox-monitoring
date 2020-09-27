@@ -50,13 +50,12 @@ if [ ! -f /etc/upnp2mrtg.cfg ]; then
 fi
 
 test -d /srv/www/htdocs || mkdir -p /srv/www/htdocs
-test -d /var/log/mrtg || mkdir -p /var/log/mrtg
 
 [ "${RUN_WEBSERVER}" = "1" ] && nginx
 
 while true; do
   DATE=$(date -Iseconds)
   echo "$DATE Fetch new data"
-  /usr/bin/mrtg /etc/mrtg.cfg 2>&1 | tee -a /var/log/mrtg/mrtg.log
+  /usr/bin/mrtg /etc/mrtg.cfg
   sleep "${POLL_INTERVAL}"
 done
