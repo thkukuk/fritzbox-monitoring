@@ -11,10 +11,7 @@ EnvironmentFile=-/etc/default/container-fritzbox-bandwidth-monitor
 ExecStartPre=-/usr/bin/podman stop fritzbox-bandwidth-monitor
 ExecStartPre=-/usr/bin/podman rm fritzbox-bandwidth-monitor
 ExecStartPre=-/usr/bin/podman pull ${FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH}
-ExecStart=/usr/bin/podman run -d --conmon-pidfile /%t/%n-pid --rm -v
-${HTML_DIR}:/srv/www/htdocs:z -e -MAX_DOWNLOAD_BYTES=${MAX_DOWNLOAD_BYTES} -e
-MAX_UPLOAD_BYTES=${MAX_UPLOAD_BYTES} -e FRITZBOX_NR=${FRITZBOX_NR} -e
-FRITZBOX=${FRITZBOX} -e POLL_INTERVALL=${POLL_INTERVALL} -e RUN_NGINX=${RUN_NGINX} -name fritzbox-bandwidth-monitor ${FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH}
+ExecStart=/usr/bin/podman run -d --conmon-pidfile /%t/%n-pid --rm -v ${HTML_DIR}:/srv/www/htdocs:z -e -MAX_DOWNLOAD_BYTES=${MAX_DOWNLOAD_BYTES} -e MAX_UPLOAD_BYTES=${MAX_UPLOAD_BYTES} -e FRITZBOX_NR=${FRITZBOX_NR} -e FRITZBOX=${FRITZBOX} -e POLL_INTERVALL=${POLL_INTERVALL} -e RUN_NGINX=${RUN_NGINX} --name fritzbox-bandwidth-monitor ${FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH}
 ExecStop=/usr/bin/podman stop fritzbox-bandwidth-monitor
 KillMode=none
 Type=forking
