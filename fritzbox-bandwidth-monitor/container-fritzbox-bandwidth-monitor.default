@@ -4,6 +4,9 @@
 # Name of the image path to pull the fritzbox-bandwidth-monitor image from
 FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH=registry.opensuse.org/home/kukuk/container/container/fritzbox-bandwidth-monitor:latest
 
+# Directory were to store the (html) data
+HTML_DIR=/srv/www/htdocs
+
 # Max download in bytes
 MAX_DOWNLOAD_BYTES=16000000000
 # Max upload in bytes
@@ -17,3 +20,6 @@ FRRITZBOX=192.168.178.1
 
 # Intervall in which we poll the fritzbox
 POLL_INTERVALL=300
+
+# If nginx should be started as webserver or not
+RUN_NGINX=1
