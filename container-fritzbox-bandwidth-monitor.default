@@ -2,7 +2,7 @@
 # /etc/default/container-fritzbox-bandwidth-monitor
 
 # Name of the image path to pull the fritzbox-bandwidth-monitor image from
-FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH=registry.opensuse.org/home/kukuk/container/container/fritzbox-bandwidth-monitor:latest
+FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH=registry.opensuse.org/home/kukuk/container/fritzbox-bandwidth-monitor:latest
 
 # Directory were to store the (html) data
 HTML_DIR=/srv/www/htdocs
