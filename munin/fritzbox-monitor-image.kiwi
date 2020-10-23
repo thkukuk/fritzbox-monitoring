@@ -50,6 +50,7 @@
     <package name="munin"/>
     <package name="python3-fritzconnection"/>
     <package name="nginx"/>
+    <package name="timezone"/>
     <archive name="entrypoint.tar.gz"/>
     <archive name="fritzbox-munin.tar.gz"/>
   </packages>
