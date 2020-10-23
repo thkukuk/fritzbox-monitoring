@@ -1,0 +1,23 @@
+# Variables of this file can be overwritten with
+# /etc/default/container-fritzbox-monitor
+
+# Name of the image path to pull the fritzbox-monitor image from
+FRITZBOX_MONITOR_IMAGE_PATH=registry.opensuse.org/home/kukuk/container/fritzbox-monitor:latest
+
+# Directory were to store the (html) data
+HTML_DIR=/srv/fritzbox/munin
+
+# Directory were to store munin data
+DATA_DIR=/srv/fritzbox/data
+
+# Fritzbox IP or DNS Name
+FRITZBOX=192.168.178.1
+
+# File in which the password of the fritzbox is stored
+FRITZBOX_PASSWORD_FILE=/etc/secrets-fritzbox/FRITZBOX_PASSWORD
+
+# Intervall in which we poll the fritzbox
+RUN_INTERVAL=300
+
+# If a webserver should be started or not
+RUN_WEBSERVER=1
