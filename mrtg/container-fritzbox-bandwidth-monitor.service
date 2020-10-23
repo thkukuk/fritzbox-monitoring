@@ -1,6 +1,6 @@
 [Unit]
 Description=Fritzbox Bandwith Monitor Container
-Documentation=https://github.com/thkukuk/fritzbox-monitoring/fritzbox-bandwidth-monitor/README.md
+Documentation=https://github.com/thkukuk/fritzbox-monitoring/mrtg/README.md
 After=network-online.target local-fs.target
 Wants=network-online.target
 
