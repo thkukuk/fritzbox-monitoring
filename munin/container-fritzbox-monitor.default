@@ -14,7 +14,7 @@ DATA_DIR=/srv/fritzbox/data
 FRITZBOX=192.168.178.1
 
 # File in which the password of the fritzbox is stored
-FRITZBOX_PASSWORD_FILE=/etc/secrets-fritzbox/FRITZBOX_PASSWORD
+FRITZBOX_PASSWORD_FILE=/etc/fritzbox-secrets/FRITZBOX_PASSWORD
 
 # Intervall in which we poll the fritzbox
 RUN_INTERVAL=300
