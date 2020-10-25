@@ -21,3 +21,9 @@ RUN_INTERVAL=300
 
 # If a webserver should be started or not
 RUN_WEBSERVER=1
+
+# Port arguments for podman
+PODMAN_PORT_ARGS="-p 80:80"
+
+# Extra arguments for podman
+PODMAN_EXTRA_ARGS=""
