@@ -20,6 +20,8 @@ FRITZBOX_PASSWORD_FILE=/etc/fritzbox-secrets/FRITZBOX_PASSWORD
 RUN_INTERVAL=300
 
 # If a webserver should be started or not
+# Remove the "-p 80:80" from PODMAN_PORT_ARGS if you
+# don't start a webserver
 RUN_WEBSERVER=1
 
 # Port arguments for podman
