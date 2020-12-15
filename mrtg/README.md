@@ -30,3 +30,6 @@ For persistent data and HTML output:
 - FRITZBOX              - IP address of fritzbox, default `192.168.178.1`
 - RUN_WEBSERVER=[0|1]   - If a webserver should be started, default `1`
 
+## Screenshot
+
+![Screenshot](Screenshot.png)
