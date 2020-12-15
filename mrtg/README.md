@@ -23,10 +23,10 @@ For persistent data and HTML output:
 
 ## Environment Variables
 
-- POLL_INTERVAL		Poll interval in seconds, by default `300`
-- MAX_DOWNLOAD_BYTES    Max. download bytes, by default `16000000000`
-- MAX_UPLOAD_BYTES      Max. upload bytes, by default `5300000000`
-- FRITZBOX_NR           Fritzbox model, by default `7530`
-- FRITZBOX              IP address of fritzbox, by default `192.168.178.1`
-- RUN_WEBSERVER=[0|1]   If a webserver should be started, by default `1`
+- POLL_INTERVAL 	- Poll interval in seconds, default `300`
+- MAX_DOWNLOAD_BYTES 	- Max. incoming traffic in Bytes per Second, default `16000000000`
+- MAX_UPLOAD_BYTES      - Max. outgoing traffic in Bytes per Second, default `5300000000`
+- FRITZBOX_NR           - Fritzbox model, default `7530`
+- FRITZBOX              - IP address of fritzbox, default `192.168.178.1`
+- RUN_WEBSERVER=[0|1]   - If a webserver should be started, default `1`
 
