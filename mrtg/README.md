@@ -13,7 +13,7 @@ The container also includes a web server to show the current statistic.
 With default configuration:
 
 ```
-  podman run -d -p 80:80 thkukuk/fritzbox-bandwidth-monitor
+  podman run -d -p 80:80 registry.opensuse.org/home/kukuk/container/fritzbox-bandwidth-monitor:latest
 ```
 
 The data get's fetched from the Fritzbox with the IP `192.168.178.1`, the
@@ -22,7 +22,7 @@ statistic can be seen on `http://localhost/fritzbox.html`.
 For persistent data and HTML output:
 ```
   mkdir -p /srv/fritzbox
-  podman run -d -v /srv/fritzbox:/srv/www/htdocs -p 80:80 thkukuk/fritzbox-bandwidth-monitor
+  podman run -d -v /srv/fritzbox:/srv/www/htdocs -p 80:80 registry.opensuse.org/home/kukuk/container/fritzbox-bandwidth-monitor:latest
 ```
 
 ## Environment Variables
