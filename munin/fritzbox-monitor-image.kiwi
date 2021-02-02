@@ -27,12 +27,12 @@
           <volume name="/var/lib/munin"/>
         </volumes>
         <labels>
-          <suse_label_helper:add_prefix prefix="org.opensuse.fritzbox-monitor">
+          <suse_label_helper:add_prefix prefix="de.thkukuk.fritzbox-monitor">
             <label name="org.opencontainers.image.title" value="Fritzbox Bandwith Monitor"/>
             <label name="org.opencontainers.image.description" value="Image to collect, monitor and display the status of a Fritzbox."/>
             <label name="org.opencontainers.image.version" value="%PKG_VERSION%-%RELEASE%"/>
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
-            <label name="org.opensuse.reference" value="registry.opensuse.org/home/kukuk/container/fritzbox-monitor:%PKG_VERSION%-%RELEASE%"/>
+            <label name="de.thkukuk.reference" value="registry.opensuse.org/home/kukuk/container/fritzbox-monitor:%PKG_VERSION%-%RELEASE%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
           </suse_label_helper:add_prefix>
         </labels>

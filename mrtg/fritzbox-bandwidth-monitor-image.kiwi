@@ -25,12 +25,12 @@
           <volume name="/srv/www/htdocs"/>
         </volumes>
         <labels>
-          <suse_label_helper:add_prefix prefix="org.opensuse.fritzbox-bandwidth-monitor">
+          <suse_label_helper:add_prefix prefix="de.thkukuk.fritzbox-bandwidth-monitor">
             <label name="org.opencontainers.image.title" value="Fritzbox Bandwith Monitor"/>
             <label name="org.opencontainers.image.description" value="Image containing mrtg and nginx to collect and display bandwith usage of a Fritzbox."/>
             <label name="org.opencontainers.image.version" value="%PKG_VERSION%-%RELEASE%"/>
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
-            <label name="org.opensuse.reference" value="registry.opensuse.org/home/kukuk/container/fritzbox-bandwidth-monitor:%PKG_VERSION%-%RELEASE%"/>
+            <label name="de.thkukuk.reference" value="registry.opensuse.org/home/kukuk/container/fritzbox-bandwidth-monitor:%PKG_VERSION%-%RELEASE%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
           </suse_label_helper:add_prefix>
         </labels>
