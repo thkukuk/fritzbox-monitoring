@@ -49,6 +49,7 @@
   <packages type="bootstrap">
     <package name="munin"/>
     <package name="python3-fritzconnection"/>
+    <package name="util-linux"/>
     <package name="nginx"/>
     <package name="timezone"/>
     <archive name="entrypoint.tar.gz"/>
