@@ -25,11 +25,13 @@ setup_timezone() {
 }
 
 stop_nginx() {
+    rv=$?
     [ "${RUN_WEBSERVER}" = "1" ] && nginx -s quit
+    exit $rv
 }
 
 init_trap() {
-    trap stop_nginx TERM INT
+    trap stop_nginx TERM INT EXIT
 }
 
 # Generic setup
@@ -38,8 +40,8 @@ init_trap
 
 if [ ! -f /etc/mrtg.cfg ]; then
     sed -e "s|7490|${FRITZBOX_NR}|g" \
-	-e "s|^MaxBytes1[fritzbox]:|MaxBytes1[fritzbox]: ${MAX_DOWNLOAD_BYTES}|g" \
-	-e "s|^MaxBytes2[fritzbox]:|MaxBytes2[fritzbox]: ${MAX_UPLOAD_BYTES}|g" \
+	-e "s|^MaxBytes1\[fritzbox\]:.*|MaxBytes1\[fritzbox\]: ${MAX_DOWNLOAD_BYTES}|g" \
+	-e "s|^MaxBytes2\[fritzbox\]:.*|MaxBytes2\[fritzbox\]: ${MAX_UPLOAD_BYTES}|g" \
 	-e "s|192.168.178.1 (fritzbox.home.lan)|${FRITZBOX}|g" \
 	/fritzbox-bandwidth-monitor/mrtg.cfg > /etc/mrtg.cfg
 fi
