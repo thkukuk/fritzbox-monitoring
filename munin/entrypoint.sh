@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 [ "${DEBUG}" = "1" ] && set -x
 
@@ -44,13 +44,14 @@ setup_timezone() {
 }
 
 stop_nginx() {
+    rv=$?
     [ "${RUN_WEBSERVER}" = "1" ] && nginx -s quit
 
-    exit
+    exit $rv
 }
 
 init_trap() {
-    trap stop_nginx TERM INT
+    trap stop_nginx TERM INT EXIT
 }
 
 # Generic setup
