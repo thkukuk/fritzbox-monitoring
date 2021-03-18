@@ -17,7 +17,7 @@
         tag="latest"
         additionaltags="1.0,1.0-%RELEASE%"
         maintainer="Thorsten Kukuk &lt;kukuk@suse.com&gt;">
-	<entrypoint execute="/entrypoint/entrypoint.sh"/>
+	<entrypoint execute="/entrypoint.sh"/>
 	<expose>
 	  <port number='80'/>
 	</expose>
@@ -52,7 +52,7 @@
     <package name="util-linux"/>
     <package name="nginx"/>
     <package name="timezone"/>
-    <archive name="entrypoint.tar.gz"/>
+    <package name="bash"/>
     <archive name="fritzbox-munin.tar.gz"/>
   </packages>
 </image>
