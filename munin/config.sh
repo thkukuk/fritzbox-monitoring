@@ -15,6 +15,6 @@ cp -a /srv/www/htdocs/munin/.htaccess /entrypoint
 
 for py in /fritzbox-munin/*.py ; do
   spy=$(basename $py)
-  sed -e 's|#!/usr/bin/env python|#!/usr/bin/python3|g' $py > /usr/lib/munin/plugins/$spy
+  sed -e 's|#!/usr/bin/env python3|#!/usr/bin/python3|g' $py > /usr/lib/munin/plugins/$spy
   chmod 755 /usr/lib/munin/plugins/$spy
 done

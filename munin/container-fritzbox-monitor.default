@@ -10,8 +10,11 @@ HTML_DIR=/srv/fritzbox/munin
 # Directory were to store munin data
 DATA_DIR=/srv/fritzbox/data
 
-# Fritzbox IP or DNS Name
-FRITZBOX=192.168.178.1
+# Fritzbox IP or hostname
+FRITZBOXP=192.168.178.1
+
+# Username to login into Fritzbox
+FRITZBOX_LOGIN="fritzXXXX"
 
 # File in which the password of the fritzbox is stored
 FRITZBOX_PASSWORD_FILE=/etc/fritzbox-secrets/FRITZBOX_PASSWORD

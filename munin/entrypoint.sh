@@ -84,16 +84,15 @@ echo "    address 127.0.0.1" >> /etc/munin/munin.conf
 echo "    use_node_name no" >> /etc/munin/munin.conf
 
 echo '[fritzbox_*]' > /etc/munin/plugin-conf.d/munin-node
+echo "env.fritzbox_ip ${FRITZBOX}" >> /etc/munin/plugin-conf.d/munin-node
+echo "env.fritzbox_username ${FRITZBOX_LOGIN}" >> /etc/munin/plugin-conf.d/munin-node
 echo "env.fritzbox_password ${FRITZBOX_PASSWORD}" >> /etc/munin/plugin-conf.d/munin-node
+echo "host_name ${FRITZBOX}" >> /etc/munin/plugin-conf.d/munin-node
 echo "#env.traffic_remove_max true" >> /etc/munin/plugin-conf.d/munin-node
 
-ln -sf /usr/lib/munin/plugins/fritzbox_helper.py /etc/munin/plugins/
-for py in /usr/lib/munin/plugins/*__*.py ; do
+for py in /usr/lib/munin/plugins/fritzbox_*.py ; do
   spy=$(basename "$py")
-  spy=${spy#"fritzbox__"}
-  spy=${spy%".py"}
-
-  ln -sf "$py" "/etc/munin/plugins/fritzbox_${FRITZBOX}_${spy}"
+  ln -sf "$py" "/etc/munin/plugins/${spy}"
 done
 
 /usr/sbin/munin-node

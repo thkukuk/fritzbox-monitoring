@@ -12,7 +12,7 @@ ExecStartPre=/usr/bin/mkdir -p ${HTML_DIR} ${DATA_DIR}
 ExecStartPre=-/usr/bin/podman stop fritzbox-monitor
 ExecStartPre=-/usr/bin/podman rm fritzbox-monitor
 ExecStartPre=-/usr/bin/podman pull ${FRITZBOX_MONITOR_IMAGE_PATH}
-ExecStart=/bin/sh -c "/usr/bin/podman run -d --conmon-pidfile /%t/%n-pid --rm ${PODMAN_EXTRA_PORTS} ${PODMAN_PORT_ARGS} -v ${HTML_DIR}:/srv/www/htdocs/munin:z -v ${DATA_DIR}:/var/lib/munin:Z -v ${FRITZBOX_PASSWORD_FILE}:/etc/fritzbox-secrets/FRITZBOX_PASSWORD:Z -e FRITZBOX_PASSWORD_FILE=/etc/fritzbox-secrets/FRITZBOX_PASSWORD -e FRITZBOX=${FRITZBOX} -e RUN_INTERVAL=${POLL_INTERVAL} -e RUN_WEBSERVER=${RUN_WEBSERVER} -e TZ=${TZ} -e DEBUG=${DEBUG} --name fritzbox-monitor ${FRITZBOX_MONITOR_IMAGE_PATH}"
+ExecStart=/bin/sh -c "/usr/bin/podman run -d --conmon-pidfile /%t/%n-pid --rm ${PODMAN_EXTRA_PORTS} ${PODMAN_PORT_ARGS} -v ${HTML_DIR}:/srv/www/htdocs/munin:z -v ${DATA_DIR}:/var/lib/munin:Z -v ${FRITZBOX_PASSWORD_FILE}:/etc/fritzbox-secrets/FRITZBOX_PASSWORD:Z -e FRITZBOX_PASSWORD_FILE=/etc/fritzbox-secrets/FRITZBOX_PASSWORD -e FRITZBOX=${FRITZBOX} -e FRITZBOX_LOGIN=${FRITZBOX_LOGIN} -e RUN_INTERVAL=${POLL_INTERVAL} -e RUN_WEBSERVER=${RUN_WEBSERVER} -e TZ=${TZ} -e DEBUG=${DEBUG} --name fritzbox-monitor ${FRITZBOX_MONITOR_IMAGE_PATH}"
 ExecStop=/usr/bin/podman stop fritzbox-monitor
 KillMode=none
 Type=forking
