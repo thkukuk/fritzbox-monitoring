@@ -15,7 +15,7 @@
       <containerconfig
         name="fritzbox-monitor"
         tag="latest"
-        additionaltags="1.0,1.0-%RELEASE%"
+        additionaltags="2.0,2.0-%RELEASE%"
         maintainer="Thorsten Kukuk &lt;kukuk@suse.com&gt;">
 	<entrypoint execute="/entrypoint.sh"/>
 	<expose>
@@ -39,7 +39,7 @@
         <history author="Thorsten Kukuk &lt;kukuk@suse.com&gt;">fritzbox monitor container</history>
       </containerconfig>
     </type>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>false</rpm-excludedocs>
   </preferences>
