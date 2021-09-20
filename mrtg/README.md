@@ -27,6 +27,8 @@ For persistent data and HTML output:
 
 ## Environment Variables
 
+- DEBUG=[0|1]           - Run entrypoint script in debug mode
+- TZ                    - Set a timezone the container should use
 - POLL_INTERVAL 	- Poll interval in seconds, default `300`
 - MAX_DOWNLOAD_BYTES 	- Max. incoming traffic in Bytes per Second, default `16000000000`
 - MAX_UPLOAD_BYTES      - Max. outgoing traffic in Bytes per Second, default `5300000000`
