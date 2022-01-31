@@ -3,19 +3,23 @@ Description=Fritzbox Bandwith Monitor Container
 Documentation=https://github.com/thkukuk/fritzbox-monitoring/mrtg/README.md
 After=network-online.target local-fs.target firewalld.service
 Wants=network-online.target
+StartLimitIntervalSec=40
+StartLimitBurst=5
 
 [Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
+RestartSec=1s
+TimeoutStopSec=70
 EnvironmentFile=/usr/etc/default/container-fritzbox-bandwidth-monitor
 EnvironmentFile=-/etc/default/container-fritzbox-bandwidth-monitor
-ExecStartPre=-/usr/bin/podman stop fritzbox-bandwidth-monitor
-ExecStartPre=-/usr/bin/podman rm fritzbox-bandwidth-monitor
+ExecStartPre=/bin/rm -f %t/%n.pid %t/%n.ctr-id
 ExecStartPre=-/usr/bin/podman pull ${FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH}
-ExecStart=/usr/bin/podman run -d --conmon-pidfile /%t/%n-pid --rm -v ${HTML_DIR}:/srv/www/htdocs:z -p 80:80 -e MAX_DOWNLOAD_BYTES=${MAX_DOWNLOAD_BYTES} -e MAX_UPLOAD_BYTES=${MAX_UPLOAD_BYTES} -e FRITZBOX_NR=${FRITZBOX_NR} -e FRITZBOX=${FRITZBOX} -e POLL_INTERVAL=${POLL_INTERVAL} -e RUN_WEBSERVER=${RUN_WEBSERVER} -e TZ=${TZ} -e DEBUG=${DEBUG} --name fritzbox-bandwidth-monitor ${FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH}
-ExecStop=/usr/bin/podman stop fritzbox-bandwidth-monitor
-KillMode=none
-Type=forking
-PIDFile=/%t/%n-pid
+ExecStart=/bin/sh -c "/usr/bin/podman run --conmon-pidfile /%t/%n.pid --cidfile %t/%n.ctr-id --cgroups=no-conmon --replace -d --rm -v ${HTML_DIR}:/srv/www/htdocs:z -p 80:80 -e MAX_DOWNLOAD_BYTES=${MAX_DOWNLOAD_BYTES} -e MAX_UPLOAD_BYTES=${MAX_UPLOAD_BYTES} -e FRITZBOX_NR=${FRITZBOX_NR} -e FRITZBOX=${FRITZBOX} -e POLL_INTERVAL=${POLL_INTERVAL} -e RUN_WEBSERVER=${RUN_WEBSERVER} -e TZ=${TZ} -e DEBUG=${DEBUG} --name fritzbox-bandwidth-monitor ${FRITZBOX_BANDWITH_MONITOR_IMAGE_PATH}"
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/%n.ctr-id -t 10
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/%n.ctr-id
+Type=notify
+PIDFile=%t/%n.pid
 
 [Install]
 WantedBy=multi-user.target
