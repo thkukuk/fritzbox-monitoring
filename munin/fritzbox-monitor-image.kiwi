@@ -53,6 +53,7 @@
     <package name="nginx"/>
     <package name="timezone"/>
     <package name="bash"/>
+    <package name="perl-CGI-Fast"/>
     <archive name="fritzbox-munin.tar.gz"/>
   </packages>
 </image>

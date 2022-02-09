@@ -97,6 +97,9 @@ done
 
 /usr/sbin/munin-node
 
+# Start munin-cgi-graph for zooming into the graphs
+/usr/bin/spawn-fcgi -s /run/munin/munin-cgi-graph.sock -P /run/munin/munin-cgi-graph.pid -u munin -g munin -M 0770 -U munin -G nginx /srv/www/cgi-bin/munin-cgi-graph
+
 [ "${RUN_WEBSERVER}" = "1" ] && nginx
 
 while true; do
