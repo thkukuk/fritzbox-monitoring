@@ -106,5 +106,5 @@ while true; do
   DATE=$(date -Iseconds)
   echo "$DATE Fetch new data"
   su - munin -c /usr/bin/munin-cron
-  sleep "${RUN_INTERVAL}"
+  sleep "${RUN_INTERVAL}" & wait $!
 done
