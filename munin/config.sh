@@ -11,7 +11,8 @@ test -f /.profile && . /.profile
 echo "Configure image: [$kiwi_iname]..."
 
 rm -f /etc/munin/plugins/*
-cp -a /srv/www/htdocs/munin/.htaccess /entrypoint
+mkdir -p /entrypoint
+cp -a /srv/www/htdocs/munin/.htaccess /entrypoint/.htaccess
 
 for py in /fritzbox-munin/*.py ; do
   spy=$(basename $py)
