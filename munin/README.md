@@ -10,6 +10,16 @@ and power consumption.
 The IP address and the password of the fritzbox are required for this.
 The container image also includes a web server to show the current statistic.
 
+## Fritzbox Monitor Account
+
+The TR-064 interface of the Fritzbox is used to collect all relevant data. To
+make this container fully working, you need:
+
+* Enable TR-064 (Heimnetz > Netzwerk > Netzwerkeinstellungen, allow access
+  for applications)
+* Create a monitoring user (System > FRITZ!Box-Benutzer > Benutzer) with
+  permissions to read the FRITZBox configuration.
+
 ## Run the container
 
 As the container requires the password to be able to login to your Fritzbo
