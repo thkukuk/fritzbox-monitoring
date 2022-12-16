@@ -15,7 +15,7 @@
       <containerconfig
         name="fritzbox-monitor"
         tag="latest"
-        additionaltags="2.0,2.0-%RELEASE%"
+        additionaltags="3,3.0,3.0-%RELEASE%"
         maintainer="Thorsten Kukuk &lt;kukuk@suse.com&gt;">
 	<entrypoint execute="/entrypoint.sh"/>
 	<expose>
@@ -30,16 +30,16 @@
           <suse_label_helper:add_prefix prefix="de.thkukuk.fritzbox-monitor">
             <label name="org.opencontainers.image.title" value="Fritzbox Bandwith Monitor"/>
             <label name="org.opencontainers.image.description" value="Image to collect, monitor and display the status of a Fritzbox."/>
-            <label name="org.opencontainers.image.version" value="%PKG_VERSION%-%RELEASE%"/>
+            <label name="org.opencontainers.image.version" value="3.0-%RELEASE%"/>
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
-            <label name="de.thkukuk.reference" value="registry.opensuse.org/home/kukuk/container/fritzbox-monitor:%PKG_VERSION%-%RELEASE%"/>
+            <label name="de.thkukuk.reference" value="registry.opensuse.org/home/kukuk/container/fritzbox-monitor:3.0-%RELEASE%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
           </suse_label_helper:add_prefix>
         </labels>
         <history author="Thorsten Kukuk &lt;kukuk@suse.com&gt;">fritzbox monitor container</history>
       </containerconfig>
     </type>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>false</rpm-excludedocs>
   </preferences>
