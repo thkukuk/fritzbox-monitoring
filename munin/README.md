@@ -22,7 +22,9 @@ make this container fully working, you need:
 
 ## Run the container
 
-As the container requires the password to be able to login to your Fritzbo
+The container requires an username and  password to be able to login to your Fritzbox, there are two ways to provide the password:
+* As environment variable "FRITZBOX_PASSWORD"
+* As file, where "FRITZBOX_PASSWORD_FILE" points to the file which only contains the password (e.g. from docker secrets)
 
 With default configuration:
 
